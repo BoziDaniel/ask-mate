@@ -13,7 +13,11 @@ def route_list():
     sorted_questions = []
     for line in sorted_lines:
         sorted_questions.append(line["message"])
-    return render_template('list.html', sorted_questions=sorted_questions),
+    return render_template('list.html', sorted_questions=sorted_questions)
+
+@app.route('/question/<question_id>')
+def route_expand_question(question_id: int):
+
 
 
 if __name__ == '__main__':
