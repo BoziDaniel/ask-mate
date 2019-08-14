@@ -7,7 +7,7 @@
 <body>
     <h1>Ask Mate</h1>
     {% for question in sorted_questions %}
-        <p><a href="/question/<question_id>">{{ question }}</a></p>
+        <p><a href="/question/{{ question["id"] }}">{{ question["message"] }}</a></p>
     {% endfor %}
 </body>
 </html>
