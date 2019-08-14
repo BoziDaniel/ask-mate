@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Ask-Mate</title>
 </head>
+
 <body>
     <h1>Ask Mate</h1>
-    {% for question in sorted_questions %}
-        <p><a href="/question/{{ question["id"] }}">{{ question["message"] }}</a></p>
+    {% for dict_item in sorted_questions %}
+        <p>Question: {{ dict_item['title'] }}</p>
     {% endfor %}
 </body>
+
 </html>
