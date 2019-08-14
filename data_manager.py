@@ -29,17 +29,27 @@ def descending_sort_data_by_id(data):#át lehet írni a fv-t bármire ami szám,
     return sorted_data
 
 
-def get_data_by_id(question_id, file_path):
+def get_subdictionary_by_id(question_id, file_path):
     data = get_all_data_from_file(file_path) #list of dicts
+    filtered_data = []
+    for element in data:
+        if question_id in element.values():
+            filtered_data.append(element)
+    return filtered_data
 
-    for dict in data:
-        if question_id in dict.values():
+
+def get_values_from_dict(dict_data):
+    values_of_a_dict = []
+    for key in dict_data:
+        values_of_a_dict.append(dict_data[key])
+    return values_of_a_dict
 
 
-
-
-
+"""
 #mind2 fv müxik, ez a 2. ra próba
 x = [{"id": 112, "name": "aga"}, {"id": 214, "name": "wzew"}, {"id": 1, "name": "awrrza"}]
 y = descending_sort_data_by_id(x)
 print(y)
+z = get_values_from_dict({"id": 112, "name": "aga"})
+print(z)
+"""
