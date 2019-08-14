@@ -1,7 +1,6 @@
 import csv
 
 
-
 questions_path = "sample_data/question.csv"
 
 
@@ -12,25 +11,17 @@ def get_all_data_from_file(file_path):
         for row in reader:
             row_in_file = dict(row)
             file_content.append(row_in_file)
-    return file_content
+    return file_content   # list of dictonarys
 
 
-def descending_sort_data_by_id(data):#át lehet írni a fv-t bármire ami szám, akk kell neki még1 paraméter.
+def descending_sort_data_by_parameter(data_to_be_sorted, parameter):
     sorted_data = []
-    for i in range(len(data)):
-        max_id = data[0]['id']
-        max_id_element = None
-        for element in data:
-            if element['id'] >= max_id:
-                max_id = element['id']
-                max_id_element = element
-        sorted_data.append(max_id_element)
-        data.remove(max_id_element)
+    sorted_data = sorted(data_to_be_sorted, key=lambda k: k[parameter], reverse=True)
     return sorted_data
 
 
 def get_subdictionary_by_id(question_id, file_path):
-    data = get_all_data_from_file(file_path) #list of dicts
+    data = get_all_data_from_file(file_path)  # list of dicts
     filtered_data = []
     for element in data:
         if question_id in element.values():
@@ -52,12 +43,11 @@ def get_a_column_from_data(column_name, list_of_dicts):
     return items_in_column
 
 
-
-#mind2 fv müxik, ez a 2. ra próba
-x = [{"id": 112, "name": "aga"}, {"id": 214, "name": "wzew"}, {"id": 1, "name": "awrrza"}]
-y = descending_sort_data_by_id(x)
-print(y)
-z = get_values_from_dict({"id": 112, "name": "aga"})
-print(z)
-
-print(get_a_column_from_data('title', questions_path))
+# #mind2 fv müxik, ez a 2. ra próba
+# x = [{"id": 112, "name": "aga"}, {"id": 214, "name": "wzew"}, {"id": 1, "name": "awrrza"}]
+# y = descending_sort_data_by_id(x)
+# print(y)
+# z = get_values_from_dict({"id": 112, "name": "aga"})
+# print(z)
+#
+# print(get_a_column_from_data('title', questions_path))
