@@ -1,17 +1,4 @@
-import csv
-
-
-questions_path = "sample_data/question.csv"
-
-
-def get_all_data_from_file(file_path):
-    file_content = []
-    with open(file_path, encoding='utf-8') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            row_in_file = dict(row)
-            file_content.append(row_in_file)
-    return file_content   # list of dictonarys
+import connection as cn
 
 
 def descending_sort_data_by_parameter(data_to_be_sorted, parameter):
@@ -21,7 +8,7 @@ def descending_sort_data_by_parameter(data_to_be_sorted, parameter):
 
 
 def get_subdictionary_by_id(question_id, file_path):
-    data = get_all_data_from_file(file_path)  # list of dicts
+    data = cn.get_all_data_from_file(file_path)
     filtered_data = []
     for element in data:
         if question_id in element.values():
