@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import data_manager as dm
+import connection as cn
 
 app = Flask(__name__)
 
@@ -17,9 +18,10 @@ def route_list():
     return render_template('list.html', sorted_questions=sorted_questions)
 
 
-@app.route('/add-question.html')
+@app.route('/add-question')
 def add_question():
     """Add new question to list, then redirect to /list page"""
+    # cn.add_new_question()
     return render_template('add-question.html')
 
 
