@@ -5,9 +5,19 @@
     <title>Question</title>
 </head>
 <body>
-    <table>
+    <h2>{% for question in questions %}
+            {% if question['id'] == question_id %}
+                {{ questions['message'] }}
 
-    </table>
+
+            {% endif %}
+        {% endfor %}
+    </h2>
+        {% for answer in answers %}
+            {% if answer['id'] == question_id %}
+                {{ questions['message'] }}
+            {% endif %}
+        {% endfor %}
 
 </body>
 </html>
