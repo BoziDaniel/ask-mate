@@ -16,3 +16,4 @@ def add_new_question(file_path, list_of_data):
         writer = csv.writer(csvfile)
         writer.writerow(list_of_data)
     csvfile.close()
+    #with opennél a close tudtommal nem kell    
